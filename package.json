@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "nuxt": "^1.0.0-rc3"
+    "moment": "^2.18.1",
+    "node-sass": "^4.5.3",
+    "nuxt": "^1.0.0-rc4",
+    "sass-loader": "^6.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

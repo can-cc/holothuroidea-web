@@ -1,59 +1,81 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
-      <h1 class="title">
-        holothuroidea-web
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+      <div class="heading">
+        HOLOTHUROIDEA
+      </div>
+      <div class="author">
+        <a href="">放為</a>
+      </div>
+      <div class="enter">
+        <nuxt-link :to="'/c/'">Enter</nuxt-link>
+      </div>
+      <div class="github">
+        <img alt="github" src="/image/GitHub-Mark.png"/>
+        <a href="https://github.com/fwchen/holothuroidea">github</a>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+  export default {
+    components: {
 
-export default {
-  components: {
-    Logo
+    }
   }
-}
 </script>
 
 <style>
-.container
-{
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.title
-{
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-.subtitle
-{
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-.links
-{
-  padding-top: 15px;
-}
+  .container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .author {
+    margin-top: 6px;
+  }
+
+  .heading {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    opacity: 0.7;
+  }
+
+  .enter {
+    margin-top: 8px;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    opacity: 0.7;
+  }
+
+  .enter a {
+    box-sizing: border-box;
+    padding: 2px 6px;
+    border: 0px solid #999;
+    border-width: 0px;
+    border-bottom: 1px solid #999;
+    transition: all 300ms ease-in-out;
+  }
+
+  .enter a:hover {
+    border-width: 1px;
+  }
+
+  .github {
+    margin-top: 20px;
+  }
+
+  .github img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    opacity: 0.9;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
 </style>
