@@ -67,6 +67,7 @@
     border-radius: 2px;
     margin-bottom: 10px;
     transition: all 50ms ease-in-out;
+    border-radius: 3px;
   }
 
   .category-list-link.home:hover {
