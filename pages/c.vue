@@ -64,10 +64,9 @@
 
   .category-list-link.home {
     border: 1px solid #999;
-    border-radius: 2px;
+    border-radius: 5px;
     margin-bottom: 10px;
     transition: all 50ms ease-in-out;
-    border-radius: 3px;
   }
 
   .category-list-link.home:hover {
