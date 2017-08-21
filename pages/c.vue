@@ -2,9 +2,9 @@
   <section class="c-container">
     <ul class="category-list">
       <li>
-        <nuxt-link class="category-list-link home" v-bind:to="'/'">
+        <a class="category-list-link home" href="/">
           Site Home
-        </nuxt-link>
+        </a>
       </li>
       <li v-for="item in categorys">
         <nuxt-link class="category-list-link" v-bind:to="'/c/' + item.name">{{item.name}}</nuxt-link>
@@ -18,17 +18,22 @@
 
 <script>
   import axios from 'axios'
-  import { baseURL } from '../constants'
 
   export default {
     components: {
 
     },
     asyncData ({ params }) {
-      return axios.get(`${baseURL}/_summary.json`)
-        .then(res => {
-          return { categorys: res.data }
-        })
+      if (process.browser) {
+        return axios.get(`/data/_summary.json`)
+          .then(res => {
+            return { categorys: res.data }
+          })
+      } else {
+        return {
+          categorys: JSON.parse(require('fs').readFileSync(`./static/data/_summary.json`, 'utf-8'))
+        }
+      }
     },
     mounted () {
       if (!this.$route.params.category && process.browser) {
@@ -44,6 +49,10 @@
     padding-right: 30px;
     display: flex;
     justify-content: flex-start;
+  }
+
+  .category-list {
+    min-width: 120px;
   }
 
   .category-list li {
@@ -73,6 +82,5 @@
     color: #333;
     background-color: #fff;
     border: 1px solid white;
-    user-select: none;
   }
 </style>

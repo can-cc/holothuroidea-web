@@ -5,7 +5,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'holothuroidea-web',
+    title: '放為-Experience',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -15,13 +15,12 @@ module.exports = {
   },
   generate: {
     routes: function() {
-      return axios.get('http://localhost:3000/data/_summary.json').then(res => {
-        return ['/c'].concat(
-          res.data.map(category => {
-            return '/c/' + category.name;
-          })
-        );
-      });
+      return [].concat(
+        ['/c'],
+        JSON.parse(require('fs').readFileSync('./static/data/_summary.json', 'utf-8')).map(
+          category => '/c/' + category.name
+        )
+      );
     }
   },
   loading: { color: '#999' },

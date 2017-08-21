@@ -14,7 +14,6 @@
 
 <script>
   import axios from 'axios'
-  import { baseURL } from '../../../constants'
 
   export default {
     data () {
@@ -24,13 +23,19 @@
 
     },
     asyncData ({ params }) {
-      return axios({
-        method: 'get',
-        timeout: 1000,
-        url: `${baseURL}/${params.category}.json`
-      }).then(res => {
-        return { category: res.data }
-      })
+      if (process.browser) {
+        return axios({
+          method: 'get',
+          timeout: 1000,
+          url: `/data/${params.category}.json`
+        }).then(res => {
+          return { category: res.data }
+        })
+      } else {
+        return {
+          category: JSON.parse(require('fs').readFileSync(`./static/data/${params.category}.json`, 'utf-8'))
+        }
+      }
     }
   }
 </script>
