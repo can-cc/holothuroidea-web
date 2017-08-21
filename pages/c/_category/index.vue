@@ -14,13 +14,14 @@
 
 <script>
   import axios from 'axios'
+  import { baseURL } from '../../../constants'
 
   export default {
     components: {
 
     },
     asyncData ({ params }) {
-      return axios.get(`http://localhost:3000/data/${params.category}.json`)
+      return axios.get(`${baseURL}/${params.category}.json`)
         .then(res => {
           return { category: res.data }
         })
