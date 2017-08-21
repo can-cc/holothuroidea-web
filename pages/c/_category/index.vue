@@ -17,14 +17,20 @@
   import { baseURL } from '../../../constants'
 
   export default {
+    data () {
+      return { category: {articles: []} }
+    },
     components: {
 
     },
     asyncData ({ params }) {
-      return axios.get(`${baseURL}/${params.category}.json`)
-        .then(res => {
-          return { category: res.data }
-        })
+      return axios({
+        method: 'get',
+        timeout: 1000,
+        url: `${baseURL}/${params.category}.json`
+      }).then(res => {
+        return { category: res.data }
+      })
     }
   }
 </script>
