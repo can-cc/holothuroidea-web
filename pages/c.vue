@@ -7,7 +7,7 @@
         </a>
       </li>
       <li v-for="item in categorys">
-        <nuxt-link class="category-list-link" v-bind:to="'/c/' + item.name">{{item.name}}</nuxt-link>
+        <nuxt-link active-class="active" class="category-list-link" v-bind:to="'/c/' + item.name">{{item.name}}</nuxt-link>
       </li>
     </ul>
     <transition name="fade">
@@ -68,7 +68,10 @@
 
   .category-list-link:hover {
     border-bottom: 1px solid #999;
+  }
 
+  .category-list-link.active {
+    border-bottom: 1px solid #999;
   }
 
   .category-list-link.home {
