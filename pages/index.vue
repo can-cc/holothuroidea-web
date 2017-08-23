@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="index-container">
     <div>
       <div class="heading">
         HOLOTHUROIDEA
@@ -27,9 +27,13 @@
 </script>
 
 <style>
-  .container {
-    min-height: 100vh;
+  .index-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
+    left: 0;
+    top: 0;
     justify-content: center;
     align-items: center;
     text-align: center;

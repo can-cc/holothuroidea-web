@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <nuxt/>
     <footer>
       <a class="filing" href="http://www.miitbeian.gov.cn/" target="_bank">粤ICP备17098096号</a>
@@ -29,6 +29,10 @@
 
   html, body {
     height: 100%
+  }
+
+  .main-container{
+    height: 100%;
   }
 
   #__nuxt {
@@ -76,5 +80,6 @@
 
   footer .filing {
     font-size: smaller;
+    letter-spacing: 3px;
   }
 </style>
