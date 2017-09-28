@@ -24,7 +24,7 @@ module.exports = {
     routes: routes
   },
   head: {
-    title: '放為-Experience',
+    title: '奔為狼 - 放為 - Experience',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
