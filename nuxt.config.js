@@ -1,9 +1,28 @@
-var axios = require('axios');
+const axios = require('axios');
+
+const routes = function() {
+  return [].concat(
+    ['/c'],
+    JSON.parse(require('fs').readFileSync('./static/data/_summary.json', 'utf-8')).map(
+      category => '/c/' + category.name
+    )
+  );
+}
 
 module.exports = {
   /*
   ** Headers of the page
   */
+  modules: [
+    '@nuxtjs/sitemap'
+  ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'http://experience.chenfangwei.xyz',
+    cacheTime: 1000 * 60 * 15,
+    generate: true,
+    routes: routes
+  },
   head: {
     title: '放為-Experience',
     meta: [
@@ -14,14 +33,7 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: function() {
-      return [].concat(
-        ['/c'],
-        JSON.parse(require('fs').readFileSync('./static/data/_summary.json', 'utf-8')).map(
-          category => '/c/' + category.name
-        )
-      );
-    }
+    routes: routes
   },
   loading: { color: '#999' },
   css: [
